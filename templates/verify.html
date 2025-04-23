@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md mt-12">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Voice Verification</h1>
+        
+        <div class="text-center mt-6">
+            <p id="instructions">Continuous voice verification is active. Speak naturally.</p>
+            <div id="timer" class="text-5xl font-bold text-blue-500 my-5 hidden">3</div>
+            
+            <div class="flex flex-col items-center my-4">
+                <button id="toggleVerification" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-md text-lg transition">Pause Verification</button>
+                <div id="verificationStatus" class="mt-2 px-3 py-1 rounded-md bg-green-50 text-green-600 font-medium">Verification Active</div>
+            </div>
+            
+            <div id="recordingStatus" class="italic mt-3"></div>
+            
+            <div id="command-section" class="mt-6 p-5 bg-gray-50 rounded-lg border-l-4 border-blue-500 hidden">
+                <h3 class="text-xl font-bold text-blue-600 mb-2">Command Mode</h3>
+                <p>You are verified. Please speak your command:</p>
+                <div class="min-h-[100px] p-4 my-4 bg-white rounded border border-gray-200 text-left">
+                    <p id="recognized-text" class="text-gray-700 italic">[Waiting for command...]</p>
+                </div>
+                <button id="returnToVerify" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition mb-2">Return to Verification</button>
+            </div>
+            
+            <div id="verification-history" class="mt-8 max-h-[400px] overflow-y-auto">
+                <h3 class="text-xl font-bold mb-3">Verification Attempts</h3>
+                <div id="attempts-container"></div>
+            </div>
+        </div>
+        
+        <div class="flex justify-center mt-8">
+            <a href="/" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition">Back to Home</a>
+        </div>
+    </div>
+
+    <script type="module" src="/static/funcs.js"></script>
+    <script type="module">
+        import { verify } from '/static/funcs.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            verify();
+        });
+    </script>
+</body>
+</html>
