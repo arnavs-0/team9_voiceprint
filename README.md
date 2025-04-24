@@ -8,3 +8,9 @@
 
 ## Replay Defense
 `watermark`: Used for noise injection to create watermarks and prevent replay attacks on the authentication system. 
+
+### Individual Contributions:
+
+- Sydney Belt: Developed full end-to-end pipeline: wake-word & command authentication 
+- Meha Goyal: Benchmarking Speech Brain model
+- Arnav Shah: Developed multi-user pipeline with caching, replay attack defense, and dataset generation
